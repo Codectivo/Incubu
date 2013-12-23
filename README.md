@@ -1,5 +1,5 @@
 Incubu
 ======
 
-Guarda tus cuentas de manera segura.
+Guarda tus cuentas de manera segura :D
 
