@@ -1,6 +1,7 @@
 {
         "general":{
-            "base_url": "http://url.com"
+            "base_url": "http://url.com",
+            "debug": true
         },
         "db":{
             "name": "NAME_DB",

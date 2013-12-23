@@ -7,7 +7,7 @@ conf_string = f.read()
 f.close()
 conf = json.loads(conf_string)
 
-DEBUG = True
+DEBUG = conf['general']['debug']
 TEMPLATE_DEBUG = DEBUG
 
 PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
