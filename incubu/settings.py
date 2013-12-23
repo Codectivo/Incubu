@@ -169,3 +169,9 @@ LOGGING = {
 
 
 LOGIN_URL = '/'
+
+#Configuration databse uncomment if deploy in heroku
+# Parse database configuration from $DATABASE_URL
+if conf['general']['prod']:
+    import dj_database_url
+    DATABASES['default'] =  dj_database_url.config()
