@@ -1,0 +1,11 @@
+{
+        "general":{
+            "base_url": "http://url.com"
+        },
+        "db":{
+            "name": "NAME_DB",
+            "user": "USER_DB",
+            "password": "PASS_DB",
+            "host": "HOST_DB"
+        }
+}

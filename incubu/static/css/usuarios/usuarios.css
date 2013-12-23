@@ -1,0 +1,68 @@
+#registra{
+    padding: 40px 15px;
+}
+
+#registra p{
+    font-family: 'Gudea', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
+    text-align: left;
+}
+
+#registra h2{
+    font-family: 'BrandonLight', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
+    color: #E34828;
+}
+
+#escritorio{
+    padding: 40px 15px;
+}
+
+#escritorio h2{
+    font-family: 'BrandonLight', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
+    color: #E94F4B;
+}
+
+#escritorio p{
+    font-family: 'Gudea', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
+    color: #616161;
+    font-size: 14px;
+}
+
+#escritorio table{
+    border-collapse: separate;
+    width: 20px;
+}
+
+#escritorio td, #escritorio th{
+    padding: 20px;
+}
+
+.bordered{
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+    -webkit-border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 1px #CCCCCC;
+}
+
+.bordered th:first-child {
+    border-radius: 6px 0 0 0;
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+}
+
+.bordered th:last-child {
+    border-radius: 0 6px 0 0;
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+}
+
+.delete_account{
+    display:none;
+    cursor: pointer;
+}
+
+.edit_account{
+    display:none;
+    cursor: pointer;
+}

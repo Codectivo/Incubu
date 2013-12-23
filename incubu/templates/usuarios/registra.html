@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block css %}
+    <link href="/static/css/usuarios/usuarios.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div id='registra'>
+        <div class='row'>
+            <div class='row'>
+                <div class='large-8 large-centered columns'>
+                    <h2>Registrate</h2>
+                    <p>Empieza a almacenar de manera segura todas tus claves.
+                    </p>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='large-5 large-centered columns'>
+                    <form id="form_contact" method="POST" >
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="large-2 columns">
+                                <label for="id_username" class="left inline">Usuario: </label>
+                            </div>
+                            <div class="large-10 columns">
+                                {{usuario_registra.username}}
+                                {% if usuario_registra.username.errors %}
+                                <label class='msg_error_label'>
+                                    {{usuario_registra.username.errors}}
+                                </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-2 columns">
+                                <label for="id_email" class="left inline">Correo: </label>
+                            </div>
+                            <div class="large-10 columns">
+                                {{usuario_registra.email}}
+                                {% if usuario_registra.email.errors %}
+                                <label class='msg_error_label'>
+                                    {{usuario_registra.email.errors}}
+                                </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-2 columns">
+                                <label for="id_password1" class="left inline">Clave: </label>
+                            </div>
+                            <div class="large-10 columns">
+                                {{usuario_registra.password1}}
+                                {% if usuario_registra.password1.errors %}
+                                    <label class='msg_error_label'>
+                                        {{usuario_registra.password1.errors}}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-2 columns">
+                                <label for="id_password2" class="left inline">Repite Clave: </label>
+                            </div>
+                            <div class="large-10 columns">
+                                {{usuario_registra.password2}}
+                                {% if usuario_registra.password2.errors %}
+                                    <label class='msg_error_label'>
+                                        {{usuario_registra.password2.errors}}
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {%if errors %}
+                            <label class='msg_error'>
+                                {{errors}}
+                            </label><br>
+                        {% endif %}
+                        <div class="row">
+                                <div class="large-12 columns right inline">
+                                    <input type="submit" class="small button" value='Registrar' />
+                                </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

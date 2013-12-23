@@ -1,0 +1,46 @@
+#manifiesto{
+    padding: 40px 15px;
+    /*background-color: ##3B3B3B;*/
+}
+
+#manifiesto h2{
+    font-family: 'BrandonLight', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
+    color: #FC5151;
+}
+
+
+#workflow {
+    padding: 40px 15px;
+    /*background-color: #F7F7F7;*/
+}
+
+#workflow h2{
+    font-family: 'BrandonLight', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
+    color: #71C18B;
+}
+
+#workflow h3 {
+    font-family: 'BrandonLight', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
+}
+
+#workflow p {
+    font-family: 'Gudea', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
+    color: #616161;
+    font-size: 14px;
+}
+
+#login{
+    padding: 40px 15px;
+    background-color: #282828;
+}
+
+#login h2{
+    font-family: 'BrandonLight', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
+    color: #E34828;
+}
+
+#login p{
+    font-family: 'Gudea', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
+    color: #616161;
+    text-align: left;
+}

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block css %}
+    <link href="/static/css/home/home.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    {% if not user.is_authenticated %}
+    <div id='login'>
+        <div class='row'>
+            <div class='row'>
+                <div class='large-8 large-centered columns'>
+                    <h2>Iniciar sesión</h2>
+                    <p>Inicia sesión o <a href="/usuario/registra/">registrate</a> y empieza a almacenar de manera segura todas tus claves.
+                    </p>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='large-5 large-centered columns'>
+                    <form id="form_contact" method="POST" action='/'>
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="large-2 columns">
+                                <label for="id_username" class="left inline">Usuario: </label>
+                            </div>
+                            <div class="large-10 columns">
+                                {{usuario_login.username}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-2 columns">
+                                <label for="id_password" class="left inline">Clave: </label>
+                            </div>
+                            <div class="large-10 columns">
+                                {{usuario_login.password}}
+                            </div>
+                        </div>
+                        {%if error_usuario_login%}
+                        <label class='msg_error'>
+                            {{error_usuario_login}}
+                        </label><br>
+                        {% endif %}
+                        <div class="row">
+                                <div class="large-12 columns right inline">
+                                    <input type="submit" class="small button" value='Enviar' />
+                                </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div id='manifiesto'>
+        <div class='row'>
+            <div class='large-8 large-centered columns'>
+                <h2>¿De que se trata?</h2>
+            </div>
+            <div class='large-8 large-centered columns'>
+                <p style="text-align: justify;">
+                    Almacenamos tus claves de manera cifrada, es decir,
+                    solo tu tienes el control de ver tus claves nosotros
+                    solo las almacenamos de manera cifrada y disponibles
+                    en cualquier momento.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id='workflow'>
+        <div class='row'>
+            <div class='large-8 large-centered columns'>
+                <h2>¿Como funciona?</h2>
+                <div class='large-6 columns'>
+                        <div class='row' style="text-align:center;">
+                            <img src="static/images/key.png" width="50">
+                            <h3>Llave maestra</h3>
+                        </div>
+                        <div class='row' style="padding:15px;">
+                            <p>Eliges una clave maestra con la cual
+                                seran cifradas todas tus claves. Esta llave
+                                maestra solo tu la puedes tener, nosotros
+                                no almacenamos las llaves.<p>
+                        </div>
+                </div>
+            </div>
+            <div class='large-11 large-centered columns'>
+                <div class='large-5 columns'>
+                        <div class='row' style="text-align:center;">
+                            <img src="static/images/store.png" width="50">
+                            <h3>Almacena</h3>
+                        </div>
+                        <div class='row' style="padding:15px;">
+                            <p>En nuestra base de datos seran almacenadas tus claves cifradas, no importa que viajen a travez
+                                de la red pues solo tu tienes la llave maestra.<p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
