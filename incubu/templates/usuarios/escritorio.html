@@ -14,13 +14,13 @@
 <div id='escritorio'>
     <div class='row'>
         <div class='large-8 columns'>
-            <h2>Escritorio</h2>
+            <h2 id="link_desktop" style="cursor:pointer;">Escritorio</h2>
             <a href="#" id="link_add_clave">Registrar Cuenta</a><br><br>
                 <div id="init_clave">
                     {% if not accounts %}
                     <p>
-                        Introducir una frase con la cual seran encriptadas/desecriptadas tus claves. Recuerda
-                        que esta sera tu frase de desencriptado.
+                        <strong>* Introduce una frase con la cual seran encriptadas/desecriptadas tus claves. Recuerda
+                        que esta sera tu frase de desencriptado y deberas recordarla siempre.</strong>
                     </p>
                     {% endif %}
                     <div class="row">

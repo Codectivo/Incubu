@@ -1,4 +1,10 @@
 $(document).ready(function(){
+
+    $("#link_desktop").click(function(){
+        $("#table_keys").fadeIn();
+        $("#add_key").hide();
+    });
+
     $("#link_add_clave").click(function(){
         $("#table_keys").hide();
         $("#add_key").fadeIn();
@@ -18,54 +24,60 @@ $(document).ready(function(){
                     'csrfmiddlewaretoken':  $.cookie("csrftoken")
                 };
             if($("#submit_add_clave").attr('data-type') == 'add'){
-                $.ajax({
-                    async: false,
-                    type: "POST",
-                    url: "/usuario/add_key/",
-                    data: data_send,
-                    success: function(response){
-                        response = $.parseJSON(response);
-                        if(response.estatus === true){
-                            $("#table_keys").fadeIn();
-                            $("#add_key").hide();
-                            $("#table_keys tbody").append("<tr><td>"+description
-                                +"</td><td>"+user+"</td><td>"
-                                +pass
-                                +"<td></td><td></td>");
-                        }
-                        else{
+                if(user && pass && description){
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        url: "/usuario/add_key/",
+                        data: data_send,
+                        success: function(response){
+                            response = $.parseJSON(response);
+                            if(response.estatus === true){
+                                $("#table_keys").fadeIn();
+                                $("#add_key").hide();
+                                $("#table_keys tbody").append("<tr><td>"+description
+                                    +"</td><td>"+user+"</td><td>"
+                                    +pass
+                                    +"<td></td><td></td>");
+                            }else{
+                                alert(err_ms);
+                            }
+                        },
+                        error: function(requestData, strError, strTipoError){
                             alert(err_ms);
                         }
-                    },
-                    error: function(requestData, strError, strTipoError){
-                        alert(err_ms);
-                    }
-                });
+                    });
+                }else{
+                    alert("Asegurate de llenar todos los campos");
+                }
             }else{
                 // Edit
                 data_send['account_id'] = $("#submit_add_clave").attr("data-edit-id");
-                $.ajax({
-                    async: false,
-                    type: "POST",
-                    url: "/usuario/edit_key/",
-                    data: data_send,
-                    success: function(response){
-                        response = $.parseJSON(response);
-                        if(response.estatus === true){
-                            $("#table_keys").fadeIn();
-                            $("#add_key").hide();
-                            $("." + data_send['account_id']+" td:eq(0)").html(description);
-                            $("." + data_send['account_id']+" td:eq(1)").html(user);
-                            $("." + data_send['account_id']+" td:eq(2)").html(pass);
-                        }
-                        else{
+                if(user && pass && description){
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        url: "/usuario/edit_key/",
+                        data: data_send,
+                        success: function(response){
+                            response = $.parseJSON(response);
+                            if(response.estatus === true){
+                                $("#table_keys").fadeIn();
+                                $("#add_key").hide();
+                                $("." + data_send['account_id']+" td:eq(0)").html(description);
+                                $("." + data_send['account_id']+" td:eq(1)").html(user);
+                                $("." + data_send['account_id']+" td:eq(2)").html(pass);
+                            }else{
+                                alert(err_ms);
+                            }
+                        },
+                        error: function(requestData, strError, strTipoError){
                             alert(err_ms);
                         }
-                    },
-                    error: function(requestData, strError, strTipoError){
-                        alert(err_ms);
-                    }
-                });
+                    });
+                }else{
+                    alert("Asegurate de llenar todos los campos");
+                }
             }
         }else{
             alert("Antes de guardar la cuenta debes introducir un Frase para encriptar tus cuentas.");
