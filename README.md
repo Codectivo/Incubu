@@ -12,35 +12,35 @@ en el navegador. Asi cuando la informacion llega a la BD ya llega encriptada.
 Instalación
 ===========
 
-1. Descargar proyecto
+°Descargar proyecto
 
-    git clone https://github.com/Codectivo/Incubu.git
+	git clone https://github.com/Codectivo/Incubu.git
 
-2. Instalar virtualenv
+°Instalar virtualenv
 
     $ virtualenv env
 
-3. Activar virtualenv
+°Activar virtualenv
 
     $ source /env/bin/activate
 
-4. Instalar requeriments.
+°Instalar requeriments.
 
     $ pip install -r requeriments.txt
 
-5. Crear un archivo config.json, similar a config.json-src
+°Crear un archivo config.json, similar a config.json-src
 
-6. Crear archivo en la raiz del proyecto de la Base de Datos (Nombre que se puso a la BD en config.json)
+°Crear archivo en la raiz del proyecto de la Base de Datos (Nombre que se puso a la BD en config.json)
 
-7. Sincronizar BD.
+°Sincronizar BD.
 
     $ python manage.py syncdb
 
-8. Ejecutar migraciones South para BD.
+°Ejecutar migraciones South para BD.
 
     $ python manage.py migrate
 
-9. Ejecutar proyecto y abrir http://127.0.0.1
+°Ejecutar proyecto y abrir http://127.0.0.1
 
     $ python manage.py runserver 8000
 
