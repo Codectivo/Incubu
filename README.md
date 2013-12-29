@@ -40,7 +40,7 @@ Instalación
 
     $ python manage.py migrate
 
-°Ejecutar proyecto y abrir http://127.0.0.1
+°Ejecutar proyecto y abrir http://127.0.0.1:8000
 
     $ python manage.py runserver 8000
 
