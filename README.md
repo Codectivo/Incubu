@@ -30,7 +30,11 @@ Instalación
 
 °Crear un archivo config.json, similar a config.json-src
 
+    $ cp config.json-src config.json
+
 °Crear archivo en la raiz del proyecto de la Base de Datos (Nombre que se puso a la BD en config.json)
+
+    $ touch incubu.db
 
 °Sincronizar BD.
 
