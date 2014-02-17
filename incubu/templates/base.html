@@ -32,7 +32,9 @@
                     {% if user.is_authenticated %}
                         <a href="/usuario/escritorio/">Escritorio</a>
                     {% endif %}
-                    <a href="/acerca/">Acerca de</a>
+                    {% if not user.is_authenticated %}
+                        <a href="/acerca/">Acerca de</a>
+                    {% endif %}
                     {% if user.is_authenticated %}
                         <a href="/usuario/logout/">Cerrar sesión</a>
                     {% endif %}
@@ -45,6 +47,11 @@
     <footer>
         <div id='footer'>
             <div class="copyright">
+                <div class="footer_product">
+                    {% if user.is_authenticated %}
+                        <a href="/acerca/">Acerca de</a>
+                    {% endif %}
+                </div>
                 © {% now "Y" %}. Incubu. Hecho con <font color="#FA5858" size="3px">♥</font>
                 . Todos los derechos reservados.
             </div>
