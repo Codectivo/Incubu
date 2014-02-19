@@ -15,8 +15,14 @@
     <link href="/static/foundation/css/normalize.css" rel="stylesheet">
     <link href="/static/foundation/css/foundation.css" rel="stylesheet">
     <link href="/static/css/incubu.css" rel="stylesheet">
+    {% if user.is_authenticated %}
+        <link href="/static/css/menu.css" rel="stylesheet">
+    {% endif %}
     {% block css %}{% endblock %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    {% if user.is_authenticated %}
+        <script type="text/javascript" src="/static/js/menu.js"></script>
+    {% endif %}
     {% block js %}{% endblock %}
 </head>
 <body>
@@ -27,16 +33,27 @@
                     <h1>Incubu</h1>
                     <p>Almacena tus claves de manera segura.</p>
                 </div>
+                <div id="menu_desplegable">
+                    {% if user.is_authenticated %}
+                    <ul class="nav">
+                        <li>
+                            <a href="/usuario/escritorio/">Escritorio</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Configuración</a>
+                                </li>
+                                <li>
+                                    <a href="/usuario/logout/">Cerrar sesión</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    {% endif %}
+                </div>
                 <div id="menu_head">
                     <a href="/">Inicio</a>
-                    {% if user.is_authenticated %}
-                        <a href="/usuario/escritorio/">Escritorio</a>
-                    {% endif %}
                     {% if not user.is_authenticated %}
                         <a href="/acerca/">Acerca de</a>
-                    {% endif %}
-                    {% if user.is_authenticated %}
-                        <a href="/usuario/logout/">Cerrar sesión</a>
                     {% endif %}
                 </div>
             </div>
