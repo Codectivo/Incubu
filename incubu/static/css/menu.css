@@ -6,6 +6,15 @@
     font-size: 16px;
 }
 
+.arrow_top{
+    position: absolute;
+    top: -9px;
+    width: 13px;
+    height: 8px;
+    border: medium none;
+    background: url('http://fanfeando.com/static/images/arrow_top.png?fc533f208ee4') no-repeat scroll left top transparent;
+}
+
 .nav {
     margin: 0px;
     list-style: none;
@@ -31,22 +40,36 @@
 .nav ul {
     display: none;
     position: absolute;
-    margin-left: -5px;
-    margin-top: -10px;
+    margin-left: 2px;
+    margin-top: 2px;
     list-style: none;
+
+    background: none repeat scroll 0% 0% #FFF;
+    border-right: 1px solid #ECECEC;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ECECEC;
+    border-top-color: #e23938;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
 }
 
 .nav ul li {
-    color: #15212c;
-    padding: 5px;
+    color: #616161;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-bottom: 1px solid #ECECEC;
 }
 
 .nav ul a {
     display: block;
-    height: 15px;
     padding: 7px 0px;
     text-decoration: none;
-    color: #15212c;
+    color: #616161;
+    font-size: 15px;
 }
 
 .nav ul li a:hover {
