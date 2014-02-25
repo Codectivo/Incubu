@@ -5,7 +5,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
-from usuarios.forms import UserCreateForm, AddAccount
+from usuarios.forms import UserCreateForm, AddAccount, UserEditForm
 from usuarios.models import Account
 
 
@@ -104,3 +104,18 @@ def delete_key(request):
         return HttpResponse(json.dumps(response))
     else:
         return HttpResponse(status=400)
+
+
+@login_required
+def configuracion(request):
+    output = {}
+    output['estatus'] = False
+    if request.method == "POST":
+        user_edit = UserEditForm(request.POST, instance=request.user)
+        if user_edit.is_valid():
+            user_edit.save()
+            output['estatus'] = True
+    else:
+        user_edit = UserEditForm(instance=request.user)
+    output['user_edit_form'] = user_edit
+    return render(request, "usuarios/configuracion.html", output)

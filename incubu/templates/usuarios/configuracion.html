@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Configuración{% endblock %}
+{% block css %}
+    <link href="/static/css/usuarios/usuarios.css" rel="stylesheet">
+{% endblock %}
+{% block js %}
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/static/js/crypto.js"></script>
+    <script type="text/javascript" src="/static/js/usuarios/escritorio.js"></script>
+
+{% endblock %}
+{% block content %}
+<div id='escritorio'>
+    <div class='row'>
+        <div class='large-8 columns'>
+            <h2>Configuración</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class='large-6 large-centered columns'>
+            {% if estatus %}
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h3>Datos actualizados correctamente.</h3>
+                    </div>
+                </div>
+            {% else %}
+            <form action="/usuario/configuracion/" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="large-2 columns">
+                    <label for="id_username" class="left inline">Usuario:</label>
+                </div>
+                <div class="large-10 columns">
+                    {{user_edit_form.username}}
+                    {% if user_edit_form.username.errors %}
+                    <label class='msg_error_label' style="margin-bottom: 20px;">
+                        {{user_edit_form.username.errors}}
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-2 columns">
+                    <label for="id_email" class="left inline">Email: </label>
+                </div>
+                <div class="large-10 columns">
+                    {{user_edit_form.email}}
+                    {% if user_edit_form.email.errors %}
+                    <label class='msg_error_label' style="margin-bottom: 20px;">
+                        {{user_edit_form.email.errors}}
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-2 columns">
+                    <label for="id_password_actual" class="left inline">Password Actual: </label>
+                </div>
+                <div class="large-10 columns">
+                    {{user_edit_form.password_actual}}
+                    {% if user_edit_form.password_actual.errors %}
+                    <label class='msg_error_label' style="margin-bottom: 20px;">
+                        {{user_edit_form.password_actual.errors}}
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-2 columns">
+                    <label for="id_password" class="left inline">Nuevo Password: </label>
+                </div>
+                <div class="large-10 columns">
+                    {{user_edit_form.password}}
+                    {% if user_edit_form.password.errors %}
+                    <label class='msg_error_label' style="margin-bottom: 20px;">
+                        {{user_edit_form.password.errors}}
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-2 columns">
+                    <label for="id_repassword" class="left inline">Repetir Password: </label>
+                </div>
+                <div class="large-10 columns">
+                    {{user_edit_form.repassword}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns right inline">
+                    <input type="submit" class="small button" value="Actualizar"/>
+                </div>
+            </div>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -8,4 +8,5 @@ urlpatterns = patterns(
     url(r'^add_key/$', 'add_key', name='add_key'),
     url(r'^edit_key/$', 'edit_key', name='edit_key'),
     url(r'^delete_key/$', 'delete_key', name='delete_key'),
+    url(r'^configuracion/$', 'configuracion', name='configuracion'),
 )

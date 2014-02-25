@@ -21,6 +21,11 @@
     color: #E94F4B;
 }
 
+#escritorio h3{
+    font-family: 'BrandonLight', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
+    color: #71C18B;
+}
+
 #escritorio p{
     font-family: 'Gudea', 'Helvetica', 'Arial', 'Verdana', 'sans-serif';
     color: #616161;
