@@ -59,14 +59,15 @@
     color: #616161;
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 35px;
+    padding-left: 35px;
     border-bottom: 1px solid #ECECEC;
 }
 
 .nav ul a {
     display: block;
     padding: 7px 0px;
+    width: 110px;
     text-decoration: none;
     color: #616161;
     font-size: 15px;
