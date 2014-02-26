@@ -6,16 +6,15 @@ from usuarios.models import Account
 
 
 class UserCreateForm(UserCreationForm):
+    """Form para creacion de Usuario"""
     email = forms.EmailField(required=True)
 
     class Meta:
         model = User
         fields = ("username", "email", "password1", "password2")
 
-
     def __init__(self, *args, **kwargs):
         super(UserCreateForm, self).__init__(*args, **kwargs)
-
 
     def clean(self):
         super(UserCreateForm, self).clean()
@@ -31,12 +30,14 @@ class UserCreateForm(UserCreationForm):
 
 
 class AddAccount(forms.ModelForm):
+    """Form para agregar ctas"""
     class Meta:
         model = Account
         fields = ("description", "user_account", "pass_account")
 
 
 class UserEditForm(forms.ModelForm):
+    """Custom Form para Configuracion de data del Usuario."""
     password_actual = forms.CharField(
         widget=forms.PasswordInput(), required=False)
     password = forms.CharField(
