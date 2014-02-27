@@ -113,7 +113,13 @@ def configuracion(request):
     if request.method == "POST":
         user_edit = UserEditForm(request.POST, instance=request.user)
         if user_edit.is_valid():
+            password_actual = request.POST.get('password_actual')
+            password = request.POST.get('password')
+            repassword = request.POST.get('repassword')
             user_edit.save()
+            if password_actual and password and repassword:
+                request.user.set_password(password)
+                request.user.save()
             output['estatus'] = True
     else:
         user_edit = UserEditForm(instance=request.user)
