@@ -15,11 +15,19 @@
     <link href="/static/foundation/css/normalize.css" rel="stylesheet">
     <link href="/static/foundation/css/foundation.css" rel="stylesheet">
     <link href="/static/css/incubu.css" rel="stylesheet">
+    <link href="/static/css/nprogress.css" rel="stylesheet">
     {% if user.is_authenticated %}
         <link href="/static/css/menu.css" rel="stylesheet">
     {% endif %}
     {% block css %}{% endblock %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="/static/js/nprogress.js" ></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            NProgress.start();
+            NProgress.done();
+        });
+    </script>
     {% if user.is_authenticated %}
         <script type="text/javascript" src="/static/js/menu.js"></script>
     {% endif %}
