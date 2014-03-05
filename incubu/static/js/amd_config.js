@@ -26,7 +26,7 @@
             'jquery.cookie': 'libs/jquery/jquery.cookie',
             aes: "http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes"
           },
-        waitSeconds: 0, //15,
+        waitSeconds: 0,
         shim: {
             'underscore': {
                 exports: '_'
@@ -38,14 +38,14 @@
         }
     });
 
-    define([
+    root.require([
         'jquery',
         'underscore',
-        'jquery.cookie'], function( $, _) {
+        'libs/nprogress'], function($, _, NProgress) {
             var startModuleName = $("script[data-main][data-start]").attr("data-start") || 'main',
                 submodule = '',
                 modules;
-            modules = startModuleName.split('/'); // to separate submodules, like in tabs on dasboard(escritorio)
+            modules = startModuleName.split('/');
             startModuleName = modules[0];
             if (modules.length > 1) {
                 submodule = _.rest(modules).join('/');
@@ -57,8 +57,10 @@
             // by default we load "apps/main.js".
             // for example, to start with the module /apps/dashboard.js: 
             // <script type="text/javascript" data-main="/static/js/amd_config" data-start="dashboard" src="/static/js/libs/require/require.js"></script>
-            require(['apps/' + startModuleName], function (App) {
+            require(['apps/' + startModuleName, 'NProgress'], function (App, NProgress) {
+                NProgress.start();
                 App.initialize({submodule: submodule});
+                NProgress.done();
             });
     });
 
