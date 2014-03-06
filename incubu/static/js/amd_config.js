@@ -24,7 +24,8 @@
             underscore: 'libs/underscore/underscore-min',
             backbone: 'libs/backbone/backbone-min',
             'jquery.cookie': 'libs/jquery/jquery.cookie',
-            aes: "http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes"
+            aes: "http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes",
+            'jquery.cookie': 'libs/jquery/jquery.cookie'
           },
         waitSeconds: 0,
         shim: {
@@ -41,7 +42,8 @@
     root.require([
         'jquery',
         'underscore',
-        'libs/nprogress'], function($, _, NProgress) {
+        'libs/nprogress',
+        'jquery.cookie'], function($, _, NProgress) {
             var startModuleName = $("script[data-main][data-start]").attr("data-start") || 'main',
                 submodule = '',
                 modules;
