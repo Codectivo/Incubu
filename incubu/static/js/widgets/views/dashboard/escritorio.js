@@ -136,7 +136,7 @@ define(['backbone', 'jquery', 'widgets/views/crypto', 'aes'], function (BB, $, C
             });
 
             $(".delete_account").click(function(){
-                if(Incubu.key){
+                if(cryptof.get_key){
                     var view = $(this),
                         err_ms = "Ocurrio un error, estamos trabajando para resolverlo",
                         data_send = {
@@ -169,7 +169,7 @@ define(['backbone', 'jquery', 'widgets/views/crypto', 'aes'], function (BB, $, C
             });
 
             $(".edit_account").click(function(){
-                if(Incubu.key){
+                if(cryptof.get_key){
                     var view = $(this),
                         description = cryptof.decrypt_str(view.attr('data-description')),
                         user = cryptof.decrypt_str(view.attr('data-user')),
