@@ -19,9 +19,9 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="large-2 columns">
-                                <label for="id_username" class="left inline">Usuario: </label>
+                                <label for="id_username" class="left inline">Usuario/Email: </label>
                             </div>
-                            <div class="large-10 columns">
+                            <div class="large-9 columns">
                                 {{usuario_login.username}}
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                             <div class="large-2 columns">
                                 <label for="id_password" class="left inline">Clave: </label>
                             </div>
-                            <div class="large-10 columns">
+                            <div class="large-9 columns">
                                 {{usuario_login.password}}
                             </div>
                         </div>
