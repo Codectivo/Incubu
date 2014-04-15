@@ -20,12 +20,16 @@ class UserCreateForm(UserCreationForm):
         super(UserCreateForm, self).clean()
         cd = self.cleaned_data
         email = cd.get('email')
+        username = cd.get('username')
         if email:
             try:
                 us = User.objects.get(email=email)
                 self._errors['email'] = "Email existente, escoger otro."
             except:
                 pass
+        if username:
+            if '@' in username:
+                self._errors['username'] = 'No se permite el @ en el Usuario'
         return cd
 
 
