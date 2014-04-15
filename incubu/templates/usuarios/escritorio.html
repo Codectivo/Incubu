@@ -1,14 +1,10 @@
 {% extends "base.html" %}
 {% block title %}Escritorio{% endblock %}
+{% if user.is_authenticated %}
+    {% block js_app %}data-start="dashboard/escritorio"{% endblock %}
+{% endif %}
 {% block css %}
     <link href="/static/css/usuarios/usuarios.css" rel="stylesheet">
-{% endblock %}
-{% block js %}
-    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
-    <script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
-    <script type="text/javascript" src="/static/js/crypto.js"></script>
-    <script type="text/javascript" src="/static/js/usuarios/escritorio.js"></script>
-
 {% endblock %}
 {% block content %}
 <div id='escritorio'>

@@ -20,17 +20,7 @@
         <link href="/static/css/menu.css" rel="stylesheet">
     {% endif %}
     {% block css %}{% endblock %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
-    <script src="/static/js/nprogress.js" ></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            NProgress.start();
-            NProgress.done();
-        });
-    </script>
-    {% if user.is_authenticated %}
-        <script type="text/javascript" src="/static/js/menu.js"></script>
-    {% endif %}
+    <script data-main="/static/js/amd_config.js" {% block js_app %}{% endblock %} src="/static/js/libs/require/require.js"></script>
     {% block js %}{% endblock %}
 </head>
 <body>

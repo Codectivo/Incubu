@@ -270,6 +270,7 @@
     return barCSS;
   }
 
-  return NProgress;
+  define("NProgress",[],function(){return NProgress});
+  // return NProgress;
 });
 
