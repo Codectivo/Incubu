@@ -47,8 +47,10 @@ class UsuariosRegistroTest(TestCase):
         self.assertEqual(form.is_valid(), False)
 
     def test_ok(self):
-        #Password no coinciden
+        #Test con data OK
         form_data = self.form_data.copy()
+        form_data['username'] = 'user_test_2'
+        form_data['email'] = 'user_2@test.com'
         form = UserCreateForm(
             data=form_data)
         self.assertEqual(form.is_valid(), True)
