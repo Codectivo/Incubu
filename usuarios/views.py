@@ -1,5 +1,4 @@
 import json
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
@@ -96,7 +95,7 @@ def delete_key(request):
     if request.is_ajax() and request.method == 'POST':
         data_id = request.POST.get('data_id')
         try:
-            acc = Account.objects.get(id=data_id).delete()
+            Account.objects.get(id=data_id).delete()
             response['estatus'] = True
         except Exception, e:
             response['estatus'] = False

@@ -23,7 +23,7 @@ class UserCreateForm(UserCreationForm):
         username = cd.get('username')
         if email:
             try:
-                us = User.objects.get(email=email)
+                User.objects.get(email=email)
                 self._errors['email'] = "Email existente, escoger otro."
             except:
                 pass
@@ -67,7 +67,7 @@ class UserEditForm(forms.ModelForm):
         email = cd.get('email')
         if email and email != self.instance.email:
             try:
-                us = User.objects.get(email=email)
+                User.objects.get(email=email)
                 self._errors['email'] = "Email existente, escoger otro."
             except:
                 pass
