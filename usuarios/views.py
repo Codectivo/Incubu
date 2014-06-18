@@ -19,7 +19,7 @@ def registra(request):
             password = request.POST.get('password1')
             userDB = User.objects.create_user(username, email, password)
             userDB.save()
-            access = authenticate(username=username, password = password)
+            access = authenticate(username=username, password=password)
             login(request, access)
             return HttpResponseRedirect('/usuario/escritorio/')
         else:

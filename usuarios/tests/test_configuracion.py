@@ -3,6 +3,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from usuarios.forms import UserEditForm
 
+
 class UsuariosFormTest(TestCase):
     """Test para el formulario de configuracion"""
 
