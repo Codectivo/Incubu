@@ -182,6 +182,7 @@ PROJECT_APPS = ['home', 'usuarios']
 
 JENKINS_TASKS = (
     'django_jenkins.tasks.run_pep8',
+    'django_jenkins.tasks.run_pyflakes',
 )
 
 PEP8_RCFILE = 'incubu/jenkins/pep8.rc'
