@@ -1,6 +1,0 @@
-usuarios/admin.py:4:1: E302 expected 2 blank lines, found 1
-usuarios/forms.py:83:18: W292 no newline at end of file
-usuarios/views.py:22:62: E251 no spaces around keyword / parameter equals
-usuarios/views.py:22:64: E251 no spaces around keyword / parameter equals
-usuarios/tests/__init__.py:2:43: W292 no newline at end of file
-usuarios/tests/test_configuracion.py:6:1: E302 expected 2 blank lines, found 1

@@ -3,3 +3,6 @@ env/
 config.json
 *.db
 .DS_Store
+
+#Jenkins Reports
+reports/
